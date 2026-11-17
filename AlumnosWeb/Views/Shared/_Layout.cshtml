@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Listado de alumnos y datos académicos." />
+    <title>@ViewData["Title"] - Alumnos</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <header class="topbar">
+        <div class="topbar-inner">
+            <a class="brand" asp-controller="Alumno" asp-action="Index">
+                <span class="brand-mark">A</span>
+                <span>Alumnos<span class="brand-light">App</span></span>
+            </a>
+            <span class="topbar-label">Panel académico</span>
+        </div>
+    </header>
+    <main class="container">
+        @RenderBody()
+    </main>
+    <footer class="footer">
+        <div class="container">Aplicación de gestión de alumnos</div>
+    </footer>
+</body>
+</html>

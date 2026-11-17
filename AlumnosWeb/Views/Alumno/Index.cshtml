@@ -1,0 +1,51 @@
+@model IReadOnlyList<Alumno>
+@{
+    ViewData["Title"] = "Listado de alumnos";
+}
+
+<section class="page-heading">
+    <div>
+        <p class="eyebrow">GESTIÓN ACADÉMICA</p>
+        <h1>Listado de alumnos</h1>
+        <p class="subtitle">Consulta los alumnos registrados y su información.</p>
+    </div>
+    <div class="total-card">
+        <span class="total-number">@Model.Count</span>
+        <span class="total-label">Alumnos registrados</span>
+    </div>
+</section>
+
+<div class="table-card">
+    <div class="table-responsive">
+        <table class="students-table">
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Nombre completo</th>
+                    <th>Pensión</th>
+                    <th>Fecha de nacimiento</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var alumno in Model)
+                {
+                    <tr>
+                        <td><span class="student-code">#@alumno.Codigo</span></td>
+                        <td class="student-name">@alumno.Nombre</td>
+                        <td>@alumno.Pension.ToString("N2")</td>
+                        <td>@alumno.FechaNacimiento.ToString("dd/MM/yyyy")</td>
+                        <td>
+                            <span class="status @(alumno.Activo ? "status-active" : "status-inactive")">
+                                @(alumno.Activo ? "Activo" : "Inactivo")
+                            </span>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="table-footer">
+        Mostrando @Model.Count alumnos
+    </div>
+</div>
